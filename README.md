@@ -21,8 +21,8 @@ A Python application that uses the Spotify Web API to create playlists from a JS
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-repository/spotify-playlist-creator.git
-cd spotify-playlist-creator
+git clone https://github.com/rbledsaw3/SpotifyPlaylistGenerator.git
+cd SpotifyPlaylistGenerator
 ```
 
 ### 2. Set Up Environment Variables
