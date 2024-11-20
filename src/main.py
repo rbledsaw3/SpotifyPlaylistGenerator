@@ -6,6 +6,10 @@ from spotipy.oauth2 import SpotifyOAuth
 from spotipy.exceptions import SpotifyException
 import sys
 
+class MissingEnvironmentVariableError(Exception):
+    """Custom exception for missing environment variables"""
+    pass
+
 # Checking environment variables
 def check_env_vars():
     missing_vars = []
@@ -23,8 +27,9 @@ def check_env_vars():
         missing_vars.append('SPOTIFY_REDIRECT_URI')
 
     if missing_vars:
-        print(f"Error: The following environment variables need to be set: {', '.join(missing_vars)}")
-        sys.exit(1)
+        raise MissingEnvironmentVariableError(
+                f"Error: The following environment variables need to be set: {', '.join(missing_vars)}"
+        )
 
     return spotify_client_id, spotify_client_secret, spotify_redirect_uri
 

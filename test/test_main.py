@@ -2,7 +2,7 @@ import unittest
 import os
 import json
 from unittest.mock import patch, MagicMock
-from src.main import load_songs, group_songs_into_playlists, check_env_vars
+from src.main import load_songs, group_songs_into_playlists, check_env_vars, MissingEnvironmentVariableError
 
 class TestMain(unittest.TestCase):
 
@@ -73,9 +73,12 @@ class TestMain(unittest.TestCase):
     def test_check_env_vars_missing(self):
         """Test that the check_env_vars function correctly checks for missing environment variables."""
         with patch.dict(os.environ, {}, clear=True):
-            with self.assertRaises(SystemExit) as cm:
+            with self.assertRaises(MissingEnvironmentVariableError) as cm:
                 check_env_vars()
-            self.assertEqual(cm.exception.code, 1)
+            self.assertIn(
+                    "Error: The following environment variables need to be set: SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, SPOTIFY_REDIRECT_URI",
+                    str(cm.exception)
+                    )
 
     def test_check_env_vars_present(self):
         """Test that the check_env_vars function correctly returns environment variables."""
