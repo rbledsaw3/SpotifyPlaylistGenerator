@@ -158,7 +158,7 @@ Playlist 'Triple J Top 100 1996' created successfully!
 ---
 
 ## License
-This project is licensed under the GLWTS Public License - see the [LICENSE](LICENSE) file for details
+This project is licensed under the GLWTS Public License - see the [LICENSE](LICENSE.md) file for details
 
 ---
 
