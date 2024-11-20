@@ -77,6 +77,8 @@ Place your JSON file in the `data/` folder. The file should be named `songs.json
 }
 ```
 
+Note: Not all the JSON fields here are used. This is an example of the raw data I started with.
+
 ---
 
 ## Usage
